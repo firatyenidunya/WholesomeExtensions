@@ -52,3 +52,21 @@ You can find tests under /Tests
     ///     print(value)
     ///     //prints 5
     public subscript(safe index: Int, default defaultValue: @autoclosure () -> Element) -> Element
+
+### ZeroDividable
+    ///
+    /// Divides two numbers (Int, Float or Double) and returns the result.
+    /// Returns 0 if rhs is zero.
+    ///
+    ///     let firstNumber: Float = 10.0
+    ///     let secondNumber: Float = 0.0
+    ///     let result = firstNumber &/ secondNumber
+    ///     print(result)
+    ///     // prints 0
+    ///
+    ///     let firstNumber: Float = 10.0
+    ///     let secondNumber: Float = 5.0
+    ///     let result = firstNumber &/ secondNumber
+    ///     print(result)
+    ///     // prints 2
+    static func &/(lhs: Self, rhs: Self) -> Self where Self: ZeroDividable
