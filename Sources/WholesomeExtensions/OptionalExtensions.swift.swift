@@ -25,7 +25,23 @@ extension Optional {
         guard let value = self else {
             return defaultValue()
         }
-
         return value
+    }
+}
+
+extension Optional where Wrapped == Data {
+    ///
+    /// Gives empty Data if value is nil.
+    /// Otherwise returns given value unwrapped
+    ///
+    ///     let data: Data? = nil
+    ///     let result = data.orEmptyData
+    ///     // result is empty Data
+    ///     
+    ///     let data: Data? = Data([1,2,3])
+    ///     let result = data.orEmptyData
+    ///     // result is Data([1,2,3]
+    var orEmptyData: Data {
+        self ?? Data()
     }
 }

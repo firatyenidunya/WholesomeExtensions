@@ -5,7 +5,6 @@ You can find examples here and actual implementation is under /Sources folder. Y
 
 You can find tests under /Tests 
  
-
 ### OptionalExtensions
     ///
     /// Unwraps and returns value of optional property.
@@ -21,6 +20,22 @@ You can find tests under /Tests
     ///     print(unwrappedValue)
     ///     // prints 5
     public func unwrappedValue(defaultValue: @autoclosure () -> Wrapped) -> Wrapped
+    
+    /// where Wrapped == Data
+    ///
+    /// Gives empty Data if value is nil.
+    /// Otherwise returns given value unwrapped
+    ///
+    ///     let data: Data? = nil
+    ///     let result = data.orEmptyData
+    ///     // result is empty Data
+    ///     
+    ///     let data: Data? = Data([1,2,3])
+    ///     let result = data.orEmptyData
+    ///     // result is Data([1,2,3]
+    var orEmptyData: Data
+}
+
     
 ### ArrayExtensions
     ///

@@ -23,4 +23,20 @@ final class OptionalExtensionsTests: XCTestCase {
         let result = value.unwrappedValue(defaultValue: 0)
         XCTAssertEqual(result, 0)
     }
+
+    func testWhenDataIsNil() {
+        let data: Data? = nil
+
+        let result = data.orEmptyData
+
+        XCTAssertEqual(result, Data())
+    }
+
+    func testWhenDataIsNotNil() {
+        let data: Data? = Data([1,2,3])
+        
+        let result = data.orEmptyData
+
+        XCTAssertEqual(result, Data([1,2,3]))
+    }
 }
